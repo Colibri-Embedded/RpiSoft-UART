@@ -296,8 +296,8 @@ static struct device *pDEVICE;
 static int __init ModuleInit(void)
 {
 	int result;
-	
-	pGPIO_REGISTER = (struct GPIO_REGISTERS *) __io_address(0x20200000);
+	// BCM2708_PERI_BASE automaticlly adjusts to correct offset. bcm2708 or bcm2709
+	pGPIO_REGISTER = (struct GPIO_REGISTERS *) __io_address(BCM2708_PERI_BASE +0x00200000);
 	GPIOFunction(GPIO_TX, 0b001);	//GPIO as output
 	GPIOFunction(GPIO_RX, 0b000);	//GPIO as input
 	

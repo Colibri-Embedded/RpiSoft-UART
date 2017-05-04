@@ -19,10 +19,9 @@ Export the path location of your toolchain/GCC, Ex:
 ```
 export PATH=$PATH:/root/raspberry/tools/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin
 ```
-Edit `Makefile` to match your kernel source directory and GCC prefix:
+Add `KSRC` and `CROSS_COMPILE` to match your kernel source directory and GCC prefix:
 ```
-KERNEL_SRC_DIR := /root/raspberry/linux
-GCC_PREFIX := arm-bcm2708-linux-gnueabi-
+KSRC=/root/raspberry/linux CROSS_COMPILE=arm-bcm2708-linux-gnueabi- make
 ```
 Now type `make` and you have the `softuart.ko` driver.
 
